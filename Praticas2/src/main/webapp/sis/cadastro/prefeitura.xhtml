@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>ECG - Cadastrar Prefeitura</title>
+        <link rel="stylesheet" href="../../css/bootstrap.css" type="text/css"/>
+        <link rel="stylesheet" href="../../css/bootstrap-theme.css" type="text/css"/>
+        <link rel="stylesheet" href="../../css/estilo.css" type="text/css"/>
+        <script src="../../js/jquery-1.11.2.js" type="text/javascript"/>
+        <script src="../../js/bootstrap.js" type="text/javascript"/>
+        <script src="../../js/scripts.js" type="text/javascript"/>
+    </h:head>
+    <h:body>
+        <div class="conteudo">
+            <div class="container centro">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-6">
+                        <div class="cadastro">
+                            <div align="center">
+                                <h1>cadastrar prefeitura</h1>
+                            </div>
+                            <div class="formulario-cadastro-usuario">
+                                <h:form>                    
+                                    <h:inputText value="#{controladorPrefeitura.prefeitura.nome}" class="form-control input-lg campos-formulario" id="nome" required="required" pt:placeholder="nome"/>
+                                    <br/>
+                                    <h:inputText value="#{controladorPrefeitura.prefeitura.email}" class="form-control input-lg campos-formulario" id="email" required="required" pt:placeholder="email"/> 
+                                    <br/>
+                                    <h:inputText value="#{controladorPrefeitura.prefeitura.senha}" class="form-control input-lg campos-formulario" id="senha" required="required" pt:placeholder="senha"/> 
+                                    <br/>
+                                    <h:inputText value="#{controladorPrefeitura.cidadePK.nomeCidade}" class="form-control input-lg campos-formulario" id="cidade" required="required" pt:placeholder="cidade"/> 
+                                    <br/>
+                                    <h:inputText value="#{controladorPrefeitura.cidadePK.siglaEstado}" class="form-control input-lg campos-formulario" id="estado" required="required" pt:placeholder="estado"/> 
+                                    
+                                    <br/><br/>
+                                    <h:commandButton class="btn btn-primary btn-lg botao-login" value="cadastrar" action="#{controladorPrefeitura.add()}"/>
+                                </h:form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </h:body>
+</html>

@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      >
+    <h:head>
+        <title>ECG - Inicio</title>
+    </h:head>
+    <h:body>
+        #{controladorUsuario.mostrapagina()}
+        <div class="conteudo">
+
+            <div id="top">
+                <ui:include src="topo.xhtml"/>
+            </div>
+
+
+            <div id="menul">
+                <ui:include src="menulateral.xhtml"/>
+            </div>
+
+            <div class="area-titulo-pagina">
+                <div class="titulo-pagina">
+                    Pesquisar por uma Cidade
+                </div>
+            </div>
+
+            <div class="centro">
+                <div class="container">
+                    <div class="row">
+                        <br/><br/>
+                        <div class="col-md-offset-1 col-md-9">
+                            <h:form>
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <h:inputText class="form-control input-lg" value="#{controladorUsuario.cid}"/>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h:inputText class="form-control input-lg" value="#{controladorUsuario.est}"/>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <h:commandButton class="btn btn-default btn-lg" value="pesquisar" action="#{controladorUsuario.resultadoPesquisa()}"/>
+                                    </div>
+                                </div>
+                            </h:form>
+                            <br/><br/>
+                            <div class="row">
+
+                                <c:choose>
+                                    <c:when test="${controladorUsuario.pesquisarCidade().size() > 0}">
+                                        <h:form rendered="#{controladorUsuario.resultadoPesquisa}">
+                                            <h:dataTable value="#{controladorUsuario.pesquisarCidade()}" var="denuncia" class="table table-striped" columnClasses="cDescricao">
+
+                                                <h:column id="cDescricao">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Descrição"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{denuncia.descricao}"/>
+                                                </h:column>
+
+                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Cidade"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{denuncia.cidade.cidadePK.nomeCidade}, #{denuncia.cidade.cidadePK.siglaEstado}"/>
+                                                </h:column>
+
+                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Endereço"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{denuncia.enderecoDenuncia.rua}, nº #{denuncia.enderecoDenuncia.numero}, #{denuncia.enderecoDenuncia.bairro}"/>
+                                                </h:column>
+
+                                                <h:column>
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Estado"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{denuncia.estadoDeAcompanhamento}"/>
+                                                </h:column>
+
+
+
+                                            </h:dataTable>
+                                        </h:form>
+                                    </c:when>
+                                    <c:when test="${controladorUsuario.cid.length() > 1 }">
+                                        <h1>Nenhum resultado encontrado para esta cidade.</h1>
+                                    </c:when>>
+                                </c:choose>
+
+                                <br/><br/><br/>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </h:body>
+</html>
+
+
