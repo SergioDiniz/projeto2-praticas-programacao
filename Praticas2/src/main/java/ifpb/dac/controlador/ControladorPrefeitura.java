@@ -5,6 +5,7 @@
  */
 package ifpb.dac.controlador;
 
+import com.br.relatorio.ControladorRelatorioIT;
 import edu.ifpb.beans.Cidade;
 import edu.ifpb.beans.CidadePK;
 import edu.ifpb.beans.Funcionario;
@@ -13,6 +14,7 @@ import ifpb.dac.serviceIT.CidadeServiceIT;
 import ifpb.dac.serviceIT.DAOIT;
 import ifpb.dac.serviceIT.FuncionarioServiceIT;
 import ifpb.dac.serviceIT.PrefeituraServiceIT;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +52,10 @@ public class ControladorPrefeitura implements Serializable{
     
     @Inject
     private FuncionarioServiceIT fs;
+    
+    @Inject
+    private ControladorRelatorioIT cr;
+
     
     public ControladorPrefeitura() {
         cidade = new Cidade();
@@ -189,6 +195,10 @@ public class ControladorPrefeitura implements Serializable{
         return "funcionarios.jsf";
     }
     
+    
+    public void downloadRealatorio() throws IOException{
+        cr.downloadFuncionario(prefeitura.getFuncionarios());
+    }
     
     
     public Cidade getCidade() {

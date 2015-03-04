@@ -37,6 +37,11 @@
 
                             <c:choose>
                                 <c:when test="${controladorPrefeitura.prefeitura.funcionarios.size() > 0}">
+                                    <div align="right">
+                                        <h:form>
+                                            <h:commandButton class="btn btn-link" value="download" action="#{controladorPrefeitura.downloadRealatorio()}"/>
+                                        </h:form>
+                                    </div>
                                     <h:form>
                                         <h:dataTable value="#{controladorPrefeitura.prefeitura.funcionarios}" var="funcionario" class="table table-striped" columnClasses="cDescricao">
 

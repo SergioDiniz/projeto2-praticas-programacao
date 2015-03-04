@@ -5,11 +5,13 @@
  */
 package ifpb.dac.controlador;
 
+import com.br.relatorio.ControladorRelatorioIT;
 import edu.ifpb.beans.Administrador;
 import edu.ifpb.beans.Prefeitura;
 import ifpb.dac.serviceIT.AdministradorServiceIT;
 import ifpb.dac.serviceIT.DAOIT;
 import ifpb.dac.serviceIT.PrefeituraServiceIT;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
@@ -34,6 +36,9 @@ public class ControladorAdministrador implements Serializable{
     
     @Inject
     private PrefeituraServiceIT ps;
+    
+    @Inject
+    private ControladorRelatorioIT cr;
     
     public ControladorAdministrador() {
         this.administrador = new Administrador();
@@ -94,7 +99,9 @@ public class ControladorAdministrador implements Serializable{
 
     
     
-    
+    public void downloadRealatorio() throws IOException{
+        cr.downloadPrefeitura(prefeiturasAtivas());
+    }
     
     
     
