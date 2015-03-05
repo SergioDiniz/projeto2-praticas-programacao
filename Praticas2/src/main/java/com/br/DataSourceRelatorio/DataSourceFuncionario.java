@@ -5,7 +5,7 @@
  */
 package com.br.DataSourceRelatorio;
 
-import edu.ifpb.beans.Funcionario;
+import edu.pp.beans.Funcionario;
 import java.util.Iterator;
 import java.util.List;
 import net.sf.jasperreports.engine.JRDataSource;

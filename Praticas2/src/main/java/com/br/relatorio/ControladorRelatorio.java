@@ -7,8 +7,8 @@ package com.br.relatorio;
  */
 import com.br.DataSourceRelatorio.DataSourceFuncionario;
 import com.br.DataSourceRelatorio.DataSourcePrefeitura;
-import edu.ifpb.beans.Funcionario;
-import edu.ifpb.beans.Prefeitura;
+import edu.pp.beans.Funcionario;
+import edu.pp.beans.Prefeitura;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;

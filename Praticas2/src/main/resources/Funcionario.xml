@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dataset>
+    <funcionario id="1" cpf="5555" email="sergio@gmail.com" nome="Sergio" senha="123"/>
+</dataset>
